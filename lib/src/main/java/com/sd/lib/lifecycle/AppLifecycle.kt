@@ -44,6 +44,4 @@ suspend fun fAppRepeatOnStarted(
   )
 }
 
-suspend fun fAwaitAppStarted() {
-  fAppLifecycle.fAwaitState(Lifecycle.State.STARTED)
-}
+suspend fun fAwaitAppStarted(): Boolean = fAppLifecycle.fAwaitState(Lifecycle.State.STARTED)
