@@ -26,9 +26,9 @@ class MainActivity : ComponentActivity() {
       AppTheme {
         Content(
           listActivity = listOf(
-            SampleAppRepeatOnStarted::class.java,
             SampleAwaitState::class.java,
             SampleAwaitAppStarted::class.java,
+            SampleAppRepeatOnStarted::class.java,
           ),
           onClickActivity = {
             startActivity(Intent(this, it))
