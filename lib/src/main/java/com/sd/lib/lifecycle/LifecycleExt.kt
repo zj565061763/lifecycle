@@ -2,8 +2,6 @@ package com.sd.lib.lifecycle
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.repeatOnLifecycle
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.first
 import kotlin.coroutines.cancellation.CancellationException
 
@@ -28,19 +26,4 @@ suspend fun Lifecycle.fAwaitState(
   if (currentState.isAtLeast(state)) return true
   currentStateFlow.first { it.isAtLeast(state) }
   return false
-}
-
-suspend fun LifecycleOwner.fRepeatOnStarted(
-  block: suspend CoroutineScope.() -> Unit,
-) {
-  lifecycle.fRepeatOnStarted(block)
-}
-
-suspend fun Lifecycle.fRepeatOnStarted(
-  block: suspend CoroutineScope.() -> Unit,
-) {
-  repeatOnLifecycle(
-    state = Lifecycle.State.STARTED,
-    block = block,
-  )
 }
