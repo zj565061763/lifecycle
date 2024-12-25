@@ -7,17 +7,17 @@ import com.sd.lib.lifecycle.fAppOnStop
 import kotlinx.coroutines.launch
 
 class App : Application() {
-   override fun onCreate() {
-      super.onCreate()
-      fAppLifecycleScope.launch {
-         fAppOnStart {
-            logMsg { "fAppOnStart" }
-         }
+  override fun onCreate() {
+    super.onCreate()
+    fAppLifecycleScope.launch {
+      fAppOnStart {
+        logMsg { "fAppOnStart" }
       }
-      fAppLifecycleScope.launch {
-         fAppOnStop {
-            logMsg { "fAppOnStop" }
-         }
+    }
+    fAppLifecycleScope.launch {
+      fAppOnStop {
+        logMsg { "fAppOnStop" }
       }
-   }
+    }
+  }
 }

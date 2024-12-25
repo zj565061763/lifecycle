@@ -8,14 +8,14 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class SampleAwaitAppStarted : ComponentActivity() {
-   override fun onCreate(savedInstanceState: Bundle?) {
-      super.onCreate(savedInstanceState)
-      lifecycleScope.launch {
-         while (true) {
-            fAwaitAppStarted()
-            logMsg { "loop" }
-            delay(1_000)
-         }
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    lifecycleScope.launch {
+      while (true) {
+        fAwaitAppStarted()
+        logMsg { "loop" }
+        delay(1_000)
       }
-   }
+    }
+  }
 }
